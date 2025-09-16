@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Five Star Hardwood Catalog</title>
+<title>Five Star Hardwood Samples</title>
 <style>
   html, body {
     margin: 0;
@@ -30,20 +30,14 @@
 let images = [];
 let currentIndex = 0;
 
-// Preload images lazily
+// Preload helper
 function preloadImage(url) {
   return new Promise(resolve => {
     const img = new Image();
     img.src = url;
     img.onload = () => resolve(url);
-    img.onerror = () => resolve(null); // ignore errors
+    img.onerror = () => resolve(null);
   });
-}
-
-async function preloadAll(data) {
-  for (const item of data) {
-    await preloadImage(item.image);
-  }
 }
 
 function showImage(index) {
@@ -53,18 +47,22 @@ function showImage(index) {
   catalog.style.backgroundImage = `url('${img.image}')`;
 }
 
-// Fetch catalog and preload images
 fetch('hardwood_catalog.json')
   .then(res => res.json())
   .then(async data => {
-    images = data;
+    // filter only "Sample" items
+    images = data.filter(item => item.title && item.title.toLowerCase().includes("sample"));
+    if (images.length === 0) return;
     showImage(currentIndex);
-    // Lazy preload remaining images in background
-    preloadAll(data.slice(1));
+
+    // preload the rest
+    for (let i = 1; i < images.length; i++) {
+      preloadImage(images[i].image);
+    }
   })
   .catch(err => console.error('Error loading catalog:', err));
 
-// Tap/click to next image
+// tap/click to cycle
 document.body.addEventListener('click', () => {
   if (images.length === 0) return;
   currentIndex = (currentIndex + 1) % images.length;
