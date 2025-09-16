@@ -175,15 +175,18 @@ document.querySelector('form').addEventListener('submit', e => {
     alert('Thank you! We will contact you soon.');
 });
 
-// Load JSON and fill canvases
-async function loadCatalog() {
+// Load JSON and filter for *-sample images
+async function loadSampleImages() {
     const res = await fetch('https://fivestarhardwoodfloors.com/hardwood_catalog.json');
     const data = await res.json();
-    return data.filter(item => item.image).map(item => item.image);
+    return data
+      .filter(item => item.image && item.image.includes('-sample'))
+      .map(item => item.image);
 }
 
+// Fill canvases with tiled sample images
 async function fillCanvases() {
-    const images = await loadCatalog();
+    const images = await loadSampleImages();
     if (!images.length) return;
     
     document.querySelectorAll('.bg-canvas').forEach(canvas => {
@@ -194,6 +197,7 @@ async function fillCanvases() {
         const rows = 10;
         const tileW = canvas.width / cols;
         const tileH = canvas.height / rows;
+
         for (let i=0;i<cols;i++){
             for (let j=0;j<rows;j++){
                 const img = new Image();
@@ -207,5 +211,6 @@ async function fillCanvases() {
 window.addEventListener('load', fillCanvases);
 window.addEventListener('resize', fillCanvases);
 </script>
+
 </body>
 </html>
