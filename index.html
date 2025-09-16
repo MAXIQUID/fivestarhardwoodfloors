@@ -30,141 +30,120 @@
     footer nav { margin-top: 10px; }
   </style>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "ProfessionalService"],
-    "name": "Five Star Hardwood Floors",
-    "image": "https://fivestarhardwoodfloors.com/assets/images/logo.png",
-    "url": "https://fivestarhardwoodfloors.com",
-    "telephone": "+14235956702",
-    "email": "info@fivestarhardwood.com",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "812 McFarland Ave",
-      "addressLocality": "Rossville",
-      "addressRegion": "GA",
-      "postalCode": "30741",
-      "addressCountry": "US"
+ <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "ProfessionalService"],
+  "name": "Five Star Hardwood Floors",
+  "image": "https://fivestarhardwoodfloors.com/assets/images/logo.png",
+  "url": "https://fivestarhardwoodfloors.com",
+  "telephone": "+14235956702",
+  "email": "info@fivestarhardwood.com",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "812 McFarland Ave",
+    "addressLocality": "Rossville",
+    "addressRegion": "GA",
+    "postalCode": "30741",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 34.9950,
+    "longitude": -85.2575
+  },
+  "areaServed": [
+    {"@type": "Place", "name": "Rossville, GA"},
+    {"@type": "Place", "name": "Chattanooga, TN"},
+    {"@type": "Place", "name": "Hamilton County, TN"},
+    {"@type": "Place", "name": "Bradley County, TN"},
+    {"@type": "Place", "name": "Northwest Georgia"}
+  ],
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "08:00",
+    "closes": "18:00"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "25",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": {"@type": "Person", "name": "Sarah P."},
+      "datePublished": "2025-09-01",
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "reviewBody": "Our floors look incredible! The dustless sanding process was clean and professional. Highly recommend!"
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 34.9950,
-      "longitude": -85.2575
-    },
-    "areaServed": [
-      {"@type": "Place", "name": "Rossville, GA"},
-      {"@type": "Place", "name": "Chattanooga, TN"},
-      {"@type": "Place", "name": "Hamilton County, TN"},
-      {"@type": "Place", "name": "Bradley County, TN"},
-      {"@type": "Place", "name": "Northwest Georgia"}
-    ],
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "08:00",
-      "closes": "18:00"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "25",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "review": [
-      {
-        "@type": "Review",
-        "author": {"@type": "Person", "name": "Sarah P."},
-        "datePublished": "2025-09-01",
-        "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
-        "reviewBody": "Our floors look incredible! The dustless sanding process was clean and professional. Highly recommend!"
-      },
-      {
-        "@type": "Review",
-        "author": {"@type": "Person", "name": "Michael D."},
-        "datePublished": "2025-08-20",
-        "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
-        "reviewBody": "Expert installation and dustless refinishing. Flawless results in Chattanooga!"
-      }
-    ],
-    "makesOffer": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "serviceType": "Dustless Sanding",
-          "description": "Eco-friendly dustless sanding for hardwood floors with 99% dust reduction.",
-          "additionalProperty": [
-            {"@type": "PropertyValue", "name": "Eco-Certification", "value": "EPA-compliant finishes"},
-            {"@type": "PropertyValue", "name": "Dust Reduction", "value": "99% dust-free process"}
-          ],
-          "potentialAction": {
-            "@type": "ReserveAction",
-            "target": {
-              "@type": "EntryPoint",
-              "urlTemplate": "https://api.web3forms.com/submit",
-              "actionPlatform": ["http://schema.org/DesktopWebPlatform", "http://schema.org/MobileWebPlatform"]
-            }
-          }
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "serviceType": "Hardwood Floor Installation",
-          "description": "Custom hardwood and LVP installations for residential and commercial projects."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "serviceType": "Hardwood Floor Refinishing",
-          "description": "Restore worn, scratched, or dull floors with eco-friendly finishes."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "serviceType": "Custom Staining & Finishing",
-          "description": "Personalized finishes to match your space with eco-friendly materials."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "serviceType": "Hardwood Floor Repair",
-          "description": "Expert repairs for scratches, water damage, and wear."
-        }
-      }
-    ],
-    "sameAs": [
-      "https://g.page/fivestarhardwood",
-      "https://www.facebook.com/fivestarhardwoodfloors",
-      "https://x.com/fivestarfloors"
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "The Benefits of Dustless Sanding for Hardwood Floors",
-    "description": "Discover how our eco-friendly dustless sanding process transforms hardwood floors in Chattanooga, TN, with minimal mess and superior quality.",
-    "keywords": ["dustless sanding", "Chattanooga flooring", "eco-friendly refinishing", "hardwood floors Rossville GA"],
-    "author": {
-      "@type": "Organization",
-      "name": "Five Star Hardwood Floors"
-    },
-    "url": "https://fivestarhardwoodfloors.com/blog/dustless-sanding-benefits",
-    "datePublished": "2025-09-16"
-  }
-  </script>
+    {
+      "@type": "Review",
+      "author": {"@type": "Person", "name": "Michael D."},
+      "datePublished": "2025-08-20",
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "reviewBody": "Expert installation and dustless refinishing. Flawless results in Chattanooga!"
+    }
+  ],
+  "makesOffer": [
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Dustless Sanding","description":"Eco-friendly dustless sanding for hardwood floors with 99% dust reduction.","additionalProperty":[{"@type":"PropertyValue","name":"Eco-Certification","value":"EPA-compliant finishes"},{"@type":"PropertyValue","name":"Dust Reduction","value":"99% dust-free process"}],"potentialAction":{"@type":"ReserveAction","target":{"@type":"EntryPoint","urlTemplate":"https://api.web3forms.com/submit","actionPlatform":["http://schema.org/DesktopWebPlatform","http://schema.org/MobileWebPlatform"]}}}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Hardwood Floor Installation","description":"Custom hardwood and LVP installations for residential and commercial projects."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Hardwood Floor Refinishing","description":"Restore worn, scratched, or dull floors with eco-friendly finishes."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Custom Staining & Finishing","description":"Personalized finishes to match your space with eco-friendly materials."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Hardwood Floor Repair","description":"Expert repairs for scratches, water damage, and wear."}},
+
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"White Oak Hardwood Installation","description":"Professional installation of White Oak hardwood floors for residential and commercial projects."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Red Oak Hardwood Installation","description":"Expert installation of Red Oak floors with precision and eco-friendly finishes."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Maple Hardwood Installation","description":"Residential and commercial Maple hardwood floor installations."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Hickory Hardwood Installation","description":"Durable Hickory hardwood floor installation with premium finishes."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Walnut Hardwood Installation","description":"Luxury Walnut hardwood floor installation for modern and classic interiors."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Cherry Hardwood Installation","description":"Elegant Cherry hardwood floor installations with expert craftsmanship."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Ash Hardwood Installation","description":"High-quality Ash hardwood floor installation for residential or commercial spaces."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Birch Hardwood Installation","description":"Professional Birch hardwood floor installation with eco-friendly finishes."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Bamboo Flooring Installation","description":"Sustainable Bamboo hardwood flooring installation for eco-conscious homes."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Mahogany Hardwood Installation","description":"Exotic Mahogany hardwood floor installation with premium finish options."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Teak Hardwood Installation","description":"Professional Teak hardwood installation for durability and luxury appeal."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Tigerwood Hardwood Installation","description":"Exotic Tigerwood flooring installation with rich natural tones."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Zebrawood Hardwood Installation","description":"Premium Zebrawood hardwood installation for unique and bold interiors."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Sapele Hardwood Installation","description":"Elegant Sapele hardwood floor installation with long-lasting finishes."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Brazilian Cherry Hardwood Installation","description":"Luxury Brazilian Cherry hardwood floor installation for upscale spaces."}},
+    
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"White Oak Dustless Sanding","description":"Eco-friendly dustless sanding for White Oak floors with 99% dust reduction."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Red Oak Dustless Sanding","description":"Professional dustless sanding for Red Oak floors for a pristine finish."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Maple Dustless Sanding","description":"Restore Maple hardwood floors with eco-friendly dustless sanding."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Hickory Dustless Sanding","description":"Dustless sanding service for Hickory hardwood floors to remove scratches and wear."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Walnut Dustless Sanding","description":"Expert dustless sanding for Walnut floors with minimal disruption."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Cherry Dustless Sanding","description":"Professional dustless sanding for Cherry hardwood floors."}},
+
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Custom Staining White Oak","description":"Custom stains and finishes for White Oak hardwood floors."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Custom Staining Red Oak","description":"Tailored stain and finish options for Red Oak floors."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Custom Staining Maple","description":"Maple hardwood floors stained and finished to your preference."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Custom Staining Walnut","description":"Professional Walnut floor staining and finishing services."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Custom Staining Cherry","description":"Cherry hardwood floors custom stained and finished."}},
+
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"White Oak Floor Repair","description":"Repair scratches, dents, and water damage on White Oak hardwood floors."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Red Oak Floor Repair","description":"Expert repair for Red Oak hardwood floors including refinishing and gap filling."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Maple Floor Repair","description":"Repair and restore Maple hardwood floors to like-new condition."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Walnut Floor Repair","description":"Repair damage and scratches on Walnut hardwood floors."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Cherry Floor Repair","description":"Professional repair services for Cherry hardwood floors."}},
+
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Hardwood Floor Restoration","description":"Full restoration for White Oak, Red Oak, Maple, Walnut, Cherry, Hickory, and other hardwood floors."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Luxury Hardwood Upgrades","description":"Upgrade your floors with exotic species like Teak, Mahogany, Tigerwood, Zebrawood, Sapele, and Brazilian Cherry."}},
+
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Free In-Home Estimate","description":"Schedule a free estimate for installation, refinishing, repair, or custom staining of all hardwood species."}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Next-Day Hardwood Installation","description":"Fast, professional installation of all hardwood species including White Oak, Maple, Walnut, Cherry, and exotic species."}}
+  ],
+  "sameAs": [
+    "https://g.page/fivestarhardwood",
+    "https://www.facebook.com/fivestarhardwoodfloors",
+    "https://x.com/fivestarfloors"
+  ]
+}
+</script>
 </head>
 <body>
   <header role="banner">
