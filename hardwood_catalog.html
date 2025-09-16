@@ -12,41 +12,21 @@
     height: 100%;
     overflow: hidden;
     background: #222;
-    font-family: sans-serif;
   }
   #catalog {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-auto-rows: 200px;
     width: 100%;
     height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(1px, auto));
+    grid-auto-rows: auto;
   }
   .tile {
-    background-size: cover;
-    background-position: center;
-    cursor: pointer;
-    transition: transform 0.3s;
-  }
-  .tile:hover {
-    transform: scale(1.05);
-  }
-  .tile::after {
-    content: attr(data-title);
-    display: block;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 4px;
-    font-size: 12px;
-    color: white;
-    background: rgba(0,0,0,0.5);
-    text-align: center;
-    box-sizing: border-box;
-  }
-  .tile-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: auto;
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: top left;
+    flex-shrink: 0;
   }
 </style>
 </head>
@@ -55,25 +35,50 @@
 <div id="catalog"></div>
 
 <script>
+let images = [];
+let currentIndex = 0;
+
+function showImage(index) {
+  const catalog = document.getElementById('catalog');
+  catalog.innerHTML = ''; // clear previous
+  const img = images[index];
+  
+  // create tile div
+  const tile = document.createElement('div');
+  tile.className = 'tile';
+  tile.style.backgroundImage = `url('${img.image}')`;
+  tile.style.width = `${img.width || img.naturalWidth}px`;
+  tile.style.height = `${img.height || img.naturalHeight}px`;
+
+  catalog.appendChild(tile);
+}
+
+// preload image to get natural size
+function preloadImage(url) {
+  return new Promise(resolve => {
+    const img = new Image();
+    img.src = url;
+    img.onload = () => resolve({url, width: img.width, height: img.height});
+  });
+}
+
 fetch('hardwood_catalog.json')
   .then(res => res.json())
-  .then(data => {
-    const catalog = document.getElementById('catalog');
-    data.forEach(item => {
-      const container = document.createElement('div');
-      container.className = 'tile-container';
+  .then(async data => {
+    // preload all images
+    images = await Promise.all(data.map(async item => {
+      const loaded = await preloadImage(item.image);
+      return {...item, naturalWidth: loaded.width, naturalHeight: loaded.height};
+    }));
+    showImage(currentIndex);
+  });
 
-      const div = document.createElement('div');
-      div.className = 'tile';
-      div.style.backgroundImage = `url('${item.image}')`;
-      div.setAttribute('data-title', item.title || '');
-      div.onclick = () => window.open(item.loc, '_blank');
-
-      container.appendChild(div);
-      catalog.appendChild(container);
-    });
-  })
-  .catch(err => console.error('Error loading catalog:', err));
+// tap/click to next image
+document.body.addEventListener('click', () => {
+  if (images.length === 0) return;
+  currentIndex = (currentIndex + 1) % images.length;
+  showImage(currentIndex);
+});
 </script>
 
 </body>
