@@ -1,430 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Five Star Hardwood Floors | Premium Flooring Services in Chattanooga & Rossville</title>
-    <meta name="description" content="Five Star Hardwood Floors provides premium hardwood installation, refinishing, and dustless sanding services in Chattanooga, TN and Rossville, GA. Free estimates available.">
-    <meta name="keywords" content="hardwood floors Chattanooga, dustless sanding, floor refinishing, hardwood installation, flooring contractor">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        /* Canvas backgrounds */
-        .bg-canvas {
-            position: absolute;
-            top:0;
-            left:0;
-            width:100%;
-            height:100%;
-            z-index:0;
-        }
-        header, .hero, .services, .about, .contact {
-            position: relative;
-            overflow: hidden;
-        }
-        .container > * {
-            position: relative;
-            z-index: 1;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Five Star Hardwood Floors | Premium Flooring Services</title>
+<meta name="description" content="Premium hardwood installation, refinishing, and dustless sanding in Chattanooga, TN and Rossville, GA. Free estimates available.">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Arial', sans-serif; line-height:1.6; color:#333; }
+.container { max-width:1200px; margin:0 auto; padding:0 20px; position: relative; z-index: 1; }
+header { background:#2c3e50; color:white; padding:1rem 0; position: fixed; width:100%; top:0; z-index:1000; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+nav { display:flex; justify-content:space-between; align-items:center; }
+.logo { font-size:1.5rem; font-weight:bold; }
+.nav-links { display:flex; list-style:none; gap:2rem; }
+.nav-links a { color:white; text-decoration:none; transition:color 0.3s; }
+.nav-links a:hover { color:#3498db; }
 
-        /* Header */
-        header {
-            background: #2c3e50;
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover {
-            color: #3498db;
-        }
+/* Section styling */
+section { position:relative; overflow:hidden; }
+.bg-canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; }
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: white;
-        }
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-        }
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-        }
-        .cta-button {
-            display: inline-block;
-            background: #e67e22;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            transition: background 0.3s;
-        }
-        .cta-button:hover {
-            background: #d35400;
-        }
+/* Hero */
+.hero { height:100vh; display:flex; align-items:center; text-align:center; color:white; }
+.hero-content { position:relative; z-index:1; }
+.hero-content h1 { font-size:3rem; margin-bottom:1rem; text-shadow:2px 2px 4px rgba(0,0,0,0.7);}
+.hero-content p { font-size:1.2rem; margin-bottom:2rem; text-shadow:1px 1px 2px rgba(0,0,0,0.7);}
+.cta-button { display:inline-block; background:#e67e22; color:white; padding:15px 30px; border-radius:5px; font-size:1.1rem; text-decoration:none; transition:background 0.3s;}
+.cta-button:hover { background:#d35400; }
 
-        /* Services Section */
-        .services {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c3e50;
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-        .service-card h3 {
-            color: #e67e22;
-            margin-bottom: 1rem;
-        }
+/* Services */
+.services { padding:80px 0; background:#f8f9fa; }
+.section-title { text-align:center; font-size:2.5rem; margin-bottom:3rem; color:#2c3e50; }
+.services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; margin-top:2rem; }
+.service-card { background:white; padding:2rem; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s; }
+.service-card:hover { transform: translateY(-5px);}
+.service-card h3 { color:#e67e22; margin-bottom:1rem; }
 
-        /* About Section */
-        .about {
-            padding: 80px 0;
-            background: white;
-        }
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        .about-text h2 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-        .about-features {
-            list-style: none;
-            margin-top: 1rem;
-        }
-        .about-features li {
-            padding: 0.5rem 0;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-        .about-features li:before {
-            content: "✓";
-            color: #e67e22;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
+/* About */
+.about { padding:80px 0; background:white; }
+.about-content { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+.about-text h2 { color:#2c3e50; margin-bottom:1rem; }
+.about-features { list-style:none; margin-top:1rem; }
+.about-features li { padding:0.5rem 0; position:relative; padding-left:1.5rem; }
+.about-features li:before { content:"✓"; color:#e67e22; font-weight:bold; position:absolute; left:0; }
 
-        /* Contact Section */
-        .contact {
-            padding: 80px 0;
-            background: #2c3e50;
-            color: white;
-        }
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-        .contact-form {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 10px;
-        }
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        .submit-btn {
-            background: #e67e22;
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background 0.3s;
-        }
-        .submit-btn:hover {
-            background: #d35400;
-        }
-        .contact-info h3 {
-            color: #3498db;
-            margin-bottom: 1rem;
-        }
-        .contact-info p {
-            margin-bottom: 1rem;
-        }
+/* Contact */
+.contact { padding:80px 0; background:#2c3e50; color:white; }
+.contact-content { display:grid; grid-template-columns:1fr 1fr; gap:3rem; }
+.contact-form { background: rgba(255,255,255,0.1); padding:2rem; border-radius:10px; }
+.form-group { margin-bottom:1rem; }
+.form-group label { display:block; margin-bottom:0.5rem; }
+.form-group input, .form-group select, .form-group textarea { width:100%; padding:0.8rem; border:none; border-radius:5px; font-size:1rem; }
+.submit-btn { background:#e67e22; color:white; padding:12px 30px; border:none; border-radius:5px; cursor:pointer; font-size:1rem; transition:background 0.3s;}
+.submit-btn:hover { background:#d35400; }
 
-        /* Footer */
-        footer {
-            background: #1a252f;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
+/* Footer */
+footer { background:#1a252f; color:white; text-align:center; padding:2rem 0; }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+/* Responsive */
+@media(max-width:768px){
+.nav-links { display:none; }
+.hero-content h1 { font-size:2rem; }
+.about-content, .contact-content { grid-template-columns:1fr; }
+}
+</style>
 </head>
 <body>
-    <header>
-        <canvas class="bg-canvas"></canvas>
-        <nav class="container">
-            <div class="logo">Five Star Hardwood Floors</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="home" class="hero">
-        <canvas class="bg-canvas"></canvas>
-        <div class="container hero-content">
-            <h1>Premium Hardwood Flooring Services</h1>
-            <p>Expert installation, refinishing, and dustless sanding in Chattanooga, TN and Rossville, GA since 2003</p>
-            <a href="#contact" class="cta-button">Get Free Estimate</a>
-        </div>
-    </section>
+<header>
+  <nav class="container">
+    <div class="logo">Five Star Hardwood Floors</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <section id="services" class="services">
-        <canvas class="bg-canvas"></canvas>
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Dustless Sanding</h3>
-                    <p>Our eco-friendly dustless sanding system removes 99% of dust particles, keeping your home clean during refinishing projects. Perfect for occupied homes and businesses.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Hardwood Installation</h3>
-                    <p>Professional installation of solid hardwood, engineered wood, and luxury vinyl plank flooring for residential and commercial properties.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Floor Refinishing</h3>
-                    <p>Restore the beauty of your existing hardwood floors with our precision sanding and eco-friendly finishing systems.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Custom Staining</h3>
-                    <p>Create the perfect look with our custom staining and finishing services. Choose from hundreds of colors and finishes.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Floor Repair</h3>
-                    <p>Expert repair services for scratches, water damage, squeaks, and general wear. We restore floors to their original condition.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Contractor Services</h3>
-                    <p>Turnkey project management for builders, contractors, and architects. We handle everything from material selection to final installation.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="home" class="hero">
+  <canvas class="bg-canvas"></canvas>
+  <div class="container hero-content">
+    <h1>Premium Hardwood Flooring Services</h1>
+    <p>Expert installation, refinishing, and dustless sanding in Chattanooga, TN and Rossville, GA since 2003</p>
+    <a href="#contact" class="cta-button">Get Free Estimate</a>
+  </div>
+</section>
 
-    <section id="about" class="about">
-        <canvas class="bg-canvas"></canvas>
-        <div class="container about-content">
-            <div class="about-text">
-                <h2>Why Choose Five Star Hardwood Floors?</h2>
-                <p>With over 20 years of experience serving the Chattanooga and North Georgia area, we've built our reputation on quality craftsmanship and exceptional customer service.</p>
-                <ul class="about-features">
-                    <li>Licensed and insured professionals</li>
-                    <li>Eco-friendly dustless sanding technology</li>
-                    <li>Premium materials from trusted manufacturers</li>
-                    <li>Free estimates and competitive pricing</li>
-                    <li>Residential and commercial expertise</li>
-                    <li>Satisfaction guaranteed on every project</li>
-                </ul>
-            </div>
-            <div class="about-image">
-                <div style="width: 100%; height: 300px; background: linear-gradient(45deg, #d4b896, #c19a6b); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #8b4513; font-size: 1.2rem; text-align: center;">
-                    Beautiful Hardwood<br>Flooring Installation
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="services" class="services">
+  <canvas class="bg-canvas"></canvas>
+  <div class="container">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card"><h3>Dustless Sanding</h3><p>Eco-friendly dustless sanding system removes 99% of dust particles.</p></div>
+      <div class="service-card"><h3>Hardwood Installation</h3><p>Professional installation of solid and engineered hardwood floors.</p></div>
+      <div class="service-card"><h3>Floor Refinishing</h3><p>Restore the beauty of existing floors with eco-friendly finishing.</p></div>
+      <div class="service-card"><h3>Custom Staining</h3><p>Create the perfect look with custom staining and finishes.</p></div>
+    </div>
+  </div>
+</section>
 
-    <section id="contact" class="contact">
-        <canvas class="bg-canvas"></canvas>
-        <div class="container contact-content">
-            <div class="contact-form">
-                <form>
-                    <div class="form-group">
-                        <label for="name">Full Name:</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone:</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="service">Service Needed:</label>
-                        <select id="service" name="service" required>
-                            <option value="">Select a service</option>
-                            <option value="dustless-sanding">Dustless Sanding</option>
-                            <option value="installation">Installation</option>
-                            <option value="refinishing">Refinishing</option>
-                            <option value="staining">Custom Staining</option>
-                            <option value="repair">Floor Repair</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Project Details:</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Tell us about your project..."></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Request Free Estimate</button>
-                </form>
-            </div>
-            <div class="contact-info">
-                <h3>Contact Information</h3>
-                <p><strong>Phone:</strong> (423) 595-6702</p>
-                <p><strong>Email:</strong> info@fivestarhardwood.com</p>
-                <p><strong>Address:</strong><br>812 McFarland Ave<br>Rossville, GA 30741</p>
-                <p><strong>Service Areas:</strong><br>Chattanooga, TN<br>Rossville, GA<br>And surrounding areas</p>
-                <h3 style="margin-top: 2rem;">Business Hours</h3>
-                <p>Monday - Friday: 8:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 4:00 PM<br>Sunday: By appointment</p>
-            </div>
-        </div>
-    </section>
+<section id="about" class="about">
+  <canvas class="bg-canvas"></canvas>
+  <div class="container about-content">
+    <div class="about-text">
+      <h2>Why Choose Five Star Hardwood Floors?</h2>
+      <ul class="about-features">
+        <li>Licensed and insured professionals</li>
+        <li>Eco-friendly dustless sanding technology</li>
+        <li>Premium materials from trusted manufacturers</li>
+        <li>Free estimates and competitive pricing</li>
+      </ul>
+    </div>
+    <div class="about-image" style="background:linear-gradient(45deg,#d4b896,#c19a6b);height:300px;border-radius:10px;"></div>
+  </div>
+</section>
 
-    <footer>
-        <canvas class="bg-canvas"></canvas>
-        <div class="container">
-            <p>&copy; 2025 Five Star Hardwood Floors. All rights reserved.</p>
-            <p>Licensed and insured hardwood flooring contractor serving Chattanooga, TN and Rossville, GA</p>
-        </div>
-    </footer>
+<section id="contact" class="contact">
+  <canvas class="bg-canvas"></canvas>
+  <div class="container">
+    <h2 class="section-title" style="color:white;">Get Your Free Estimate</h2>
+    <div class="contact-content">
+      <div class="contact-form">
+        <form>
+          <div class="form-group"><label for="name">Full Name:</label><input type="text" id="name" name="name" required></div>
+          <div class="form-group"><label for="email">Email:</label><input type="email" id="email" name="email" required></div>
+          <div class="form-group"><label for="phone">Phone:</label><input type="tel" id="phone" name="phone"></div>
+          <div class="form-group"><label for="service">Service Needed:</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service</option>
+              <option value="dustless-sanding">Dustless Sanding</option>
+              <option value="installation">Installation</option>
+              <option value="refinishing">Refinishing</option>
+              <option value="staining">Custom Staining</option>
+              <option value="repair">Floor Repair</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label for="message">Project Details:</label>
+            <textarea id="message" name="message" rows="4"></textarea></div>
+          <button type="submit" class="submit-btn">Request Free Estimate</button>
+        </form>
+      </div>
+      <div class="contact-info" style="color:white;">
+        <h3>Contact Information</h3>
+        <p><strong>Phone:</strong> (423) 595-6702</p>
+        <p><strong>Email:</strong> info@fivestarhardwood.com</p>
+        <p><strong>Address:</strong> 812 McFarland Ave, Rossville, GA 30741</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({behavior: 'smooth'});
-            });
-        });
+<footer>
+  <canvas class="bg-canvas"></canvas>
+  <div class="container">
+    <p>&copy; 2025 Five Star Hardwood Floors. All rights reserved.</p>
+  </div>
+</footer>
 
-        // Form submission handler
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your interest! We will contact you soon with your free estimate.');
-        });
+<script>
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(anchor.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+    });
+});
 
-        // Load images from hardwood_catalog.json
-        async function loadCatalog() {
-            const res = await fetch('hardwood_catalog.json');
-            return res.json();
+// Form handler
+document.querySelector('form').addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Thank you! We will contact you soon.');
+});
+
+// Load JSON and fill canvases
+async function loadCatalog() {
+    const res = await fetch('https://fivestarhardwoodfloors.com/hardwood_catalog.json');
+    const data = await res.json();
+    return data.filter(item => item.image).map(item => item.image);
+}
+
+async function fillCanvases() {
+    const images = await loadCatalog();
+    if (!images.length) return;
+    
+    document.querySelectorAll('.bg-canvas').forEach(canvas => {
+        const ctx = canvas.getContext('2d');
+        canvas.width = canvas.clientWidth;
+        canvas.height = canvas.clientHeight;
+        const cols = 10;
+        const rows = 10;
+        const tileW = canvas.width / cols;
+        const tileH = canvas.height / rows;
+        for (let i=0;i<cols;i++){
+            for (let j=0;j<rows;j++){
+                const img = new Image();
+                img.src = images[Math.floor(Math.random()*images.length)];
+                img.onload = () => ctx.drawImage(img, i*tileW, j*tileH, tileW, tileH);
+            }
         }
+    });
+}
 
-        // Fill canvas backgrounds
-        async function fillCanvases() {
-            const images = await loadCatalog();
-            document.querySelectorAll('.bg-canvas').forEach(canvas => {
-                const ctx = canvas.getContext('2d');
-                canvas.width = canvas.clientWidth;
-                canvas.height = canvas.clientHeight;
-                const cols = 10;
-                const rows = 10;
-                const tileW = canvas.width / cols;
-                const tileH = canvas.height / rows;
-                for (let i=0;i<cols;i++){
-                    for(let j=0;j<rows;j++){
-                        const img = new Image();
-                        img.src = images[Math.floor(Math.random()*images.length)];
-                        img.onload = () => ctx.drawImage(img,i*tileW,j*tileH,tileW,tileH);
-                    }
-                }
-            });
-        }
-
-        window.addEventListener('load', fillCanvases);
-        window.addEventListener('resize', fillCanvases);
-    </script>
+window.addEventListener('load', fillCanvases);
+window.addEventListener('resize', fillCanvases);
+</script>
 </body>
 </html>
