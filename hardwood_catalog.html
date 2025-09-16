@@ -8,25 +8,17 @@
   html, body {
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
     background: #222;
   }
   #catalog {
     width: 100%;
     height: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(1px, auto));
-    grid-auto-rows: auto;
-  }
-  .tile {
-    width: auto;
-    height: auto;
-    background-size: auto;
     background-repeat: repeat;
     background-position: top left;
-    flex-shrink: 0;
+    background-size: auto;
   }
 </style>
 </head>
@@ -38,42 +30,41 @@
 let images = [];
 let currentIndex = 0;
 
-function showImage(index) {
-  const catalog = document.getElementById('catalog');
-  catalog.innerHTML = ''; // clear previous
-  const img = images[index];
-  
-  // create tile div
-  const tile = document.createElement('div');
-  tile.className = 'tile';
-  tile.style.backgroundImage = `url('${img.image}')`;
-  tile.style.width = `${img.width || img.naturalWidth}px`;
-  tile.style.height = `${img.height || img.naturalHeight}px`;
-
-  catalog.appendChild(tile);
-}
-
-// preload image to get natural size
+// Preload images lazily
 function preloadImage(url) {
   return new Promise(resolve => {
     const img = new Image();
     img.src = url;
-    img.onload = () => resolve({url, width: img.width, height: img.height});
+    img.onload = () => resolve(url);
+    img.onerror = () => resolve(null); // ignore errors
   });
 }
 
+async function preloadAll(data) {
+  for (const item of data) {
+    await preloadImage(item.image);
+  }
+}
+
+function showImage(index) {
+  const catalog = document.getElementById('catalog');
+  const img = images[index];
+  if (!img) return;
+  catalog.style.backgroundImage = `url('${img.image}')`;
+}
+
+// Fetch catalog and preload images
 fetch('hardwood_catalog.json')
   .then(res => res.json())
   .then(async data => {
-    // preload all images
-    images = await Promise.all(data.map(async item => {
-      const loaded = await preloadImage(item.image);
-      return {...item, naturalWidth: loaded.width, naturalHeight: loaded.height};
-    }));
+    images = data;
     showImage(currentIndex);
-  });
+    // Lazy preload remaining images in background
+    preloadAll(data.slice(1));
+  })
+  .catch(err => console.error('Error loading catalog:', err));
 
-// tap/click to next image
+// Tap/click to next image
 document.body.addEventListener('click', () => {
   if (images.length === 0) return;
   currentIndex = (currentIndex + 1) % images.length;
