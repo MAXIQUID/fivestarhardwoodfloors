@@ -76,7 +76,7 @@
 
     .title {
       padding: 10px 12px;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       font-weight: 500;
       line-height: 1.3;
       color: var(--text);
@@ -89,7 +89,7 @@
 
     @media (max-width: 600px) {
       .title {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
       }
     }
   </style>
@@ -112,12 +112,11 @@
         const samples = data
           .filter(item =>
             item.title &&
-            item.title.toLowerCase().includes("sample") &&
-            !item.title.toLowerCase().includes("laminate")
+            item.title.toLowerCase().includes("solid hardwood flooring")
           )
           .map(item => ({
             title: item.title,
-            images: [item.image] // placeholder for multiple images
+            images: [item.image] // later: add multiple
           }))
           .sort((a, b) => a.title.localeCompare(b.title));
 
