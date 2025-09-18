@@ -12,61 +12,179 @@
 <meta property="og:description" content="Expert hardwood installation, refinishing, dustless sanding, and floor repair in Rossville, GA & Chattanooga, TN. Licensed, insured, and trusted since 2003.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://fivestarhardwoodfloors.com/">
-<meta property="og:image" content="https://fivestarhardwoodfloors.com/cover.jpg">
-
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://fivestarhardwoodfloors.com/cover.jpg"> <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Five Star Hardwood Floors — Rossville & Chattanooga">
 <meta name="twitter:description" content="Premium hardwood installation, refinishing, and dustless sanding. Free estimates available.">
 <meta name="twitter:image" content="https://fivestarhardwoodfloors.com/cover.jpg">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Arial', sans-serif; line-height:1.6; color:#333; }
-.container { max-width:1200px; margin:0 auto; padding:0 20px; position: relative; z-index: 1; }
-header { background:#2c3e50; color:white; padding:1rem 0; position: fixed; width:100%; top:0; z-index:1000; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+:root {
+  --primary-color: #e67e22; /* Vibrant Orange */
+  --primary-hover: #d35400; /* Darker Orange */
+  --dark-blue: #2c3e50;
+  --text-color: #333;
+  --light-gray: #f8f9fa;
+  --white: #ffffff;
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { 
+  font-family: var(--font-body); 
+  line-height:1.7; 
+  color: var(--text-color); 
+}
+.container { max-width:1100px; margin:0 auto; padding:0 20px; }
+h1, h2, h3 { font-family: var(--font-heading); font-weight: 700; color: var(--dark-blue); }
+h1 { font-size: 3.2rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.5rem; color: var(--primary-color); }
+
+/* Header & Navigation */
+header { 
+  background: transparent; 
+  padding: 1rem 0; 
+  position: fixed; 
+  width:100%; 
+  top:0; 
+  z-index:1000; 
+  transition: background-color 0.4s ease, box-shadow 0.4s ease; 
+}
+header.scrolled {
+  background-color: rgba(44, 62, 80, 0.95);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
 nav { display:flex; justify-content:space-between; align-items:center; }
-.logo { font-size:1.5rem; font-weight:bold; }
+.logo { font-family: var(--font-heading); font-size:1.5rem; font-weight:bold; color: var(--white); }
 .nav-links { display:flex; list-style:none; gap:2rem; }
-.nav-links a { color:white; text-decoration:none; transition:color 0.3s; }
-.nav-links a:hover { color:#3498db; }
-section { position:relative; overflow:hidden; }
-.bg-canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; }
-.hero { height:100vh; display:flex; align-items:center; text-align:center; color:white; }
-.hero-content { position:relative; z-index:1; }
-.hero-content h1 { font-size:3rem; margin-bottom:1rem; text-shadow:2px 2px 4px rgba(0,0,0,0.7);}
-.hero-content p { font-size:1.2rem; margin-bottom:2rem; text-shadow:1px 1px 2px rgba(0,0,0,0.7);}
-.cta-button { display:inline-block; background:#e67e22; color:white; padding:15px 30px; border-radius:5px; font-size:1.1rem; text-decoration:none; transition:background 0.3s;}
-.cta-button:hover { background:#d35400; }
-.services { padding:80px 0; background:#f8f9fa; }
-.section-title { text-align:center; font-size:2.5rem; margin-bottom:3rem; color:#2c3e50; }
-.services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; margin-top:2rem; }
-.service-card { background:white; padding:2rem; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s; }
-.service-card:hover { transform: translateY(-5px);}
-.service-card h3 { color:#e67e22; margin-bottom:1rem; }
-.about { padding:80px 0; background:white; }
+.nav-links a { color:var(--white); text-decoration:none; font-weight: 600; transition:color 0.3s; }
+.nav-links a:hover { color:var(--primary-color); }
+
+/* Hero Section */
+.hero { 
+  height:100vh; 
+  display:flex; 
+  align-items:center; 
+  text-align:center; 
+  color:var(--white); 
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1599696845611-6253bc544453?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') no-repeat center center/cover;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+  z-index: 1;
+}
+.hero-content { position:relative; z-index:2; }
+.hero-content h1 { color: var(--white); margin-bottom:1rem; text-shadow:2px 2px 8px rgba(0,0,0,0.7);}
+.hero-content p { font-size:1.2rem; max-width: 600px; margin: 0 auto 2.5rem auto; text-shadow:1px 1px 4px rgba(0,0,0,0.7);}
+.cta-button { 
+  display:inline-block; 
+  background:var(--primary-color); 
+  color:var(--white); 
+  padding:15px 35px; 
+  border-radius:50px; 
+  font-size:1.1rem; 
+  font-weight: 600;
+  text-decoration:none; 
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.cta-button:hover { background:var(--primary-hover); transform: translateY(-3px); }
+
+/* General Section Styling */
+section { padding: 100px 0; }
+.section-title { text-align:center; margin-bottom:4rem; }
+
+/* Services Section */
+.services { background:var(--light-gray); }
+.services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; margin-top:2rem; }
+.service-card { 
+  background:var(--white); 
+  padding:2.5rem 2rem; 
+  border-radius:10px; 
+  box-shadow:0 5px 25px rgba(0,0,0,0.07); 
+  transition: transform 0.3s, box-shadow 0.3s; 
+  text-align: center;
+}
+.service-card:hover { transform: translateY(-10px); box-shadow:0 15px 35px rgba(0,0,0,0.1); }
+.service-card i { font-size: 3rem; color: var(--primary-color); margin-bottom: 1.5rem; }
+
+/* About Section */
+.about { background:var(--white); }
 .about-content { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
-.about-text h2 { color:#2c3e50; margin-bottom:1rem; }
-.about-features { list-style:none; margin-top:1rem; }
-.about-features li { padding:0.5rem 0; position:relative; padding-left:1.5rem; }
-.about-features li:before { content:"✓"; color:#e67e22; font-weight:bold; position:absolute; left:0; }
-.testimonials { padding: 80px 0; background: #f8f9fa; }
+.about-text p { margin-bottom: 1rem; }
+.about-features { list-style:none; margin-top:1.5rem; }
+.about-features li { padding:0.5rem 0; position:relative; padding-left:2rem; font-weight: 600; }
+.about-features li:before { content:"\f058"; font-family: "Font Awesome 6 Free"; font-weight: 900; color:var(--primary-color); position:absolute; left:0; font-size: 1.2rem; }
+.about-image {
+  background: url('https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?auto=format&fit=crop&w=880&q=80') no-repeat center center/cover;
+  height:400px;
+  border-radius:10px;
+}
+
+/* Testimonials Section */
+.testimonials { background: var(--light-gray); }
 .testimonial-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; margin-top:2rem; }
-.testimonial-card { background:white; padding:2rem; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); }
-.testimonial-card p { font-style: italic; }
-.testimonial-card .author { text-align: right; margin-top: 1rem; font-weight: bold; color: #e67e22; }
-.contact { padding:80px 0; background:#2c3e50; color:white; }
+.testimonial-card { 
+  background:var(--white); 
+  padding:2rem; 
+  border-radius:10px; 
+  box-shadow:0 5px 25px rgba(0,0,0,0.07); 
+  display: flex;
+  flex-direction: column;
+}
+.testimonial-card p { font-style: italic; color: #555; flex-grow: 1; }
+.testimonial-card p::before { content: '“'; font-size: 1.5rem; color: var(--primary-color); font-weight: bold; margin-right: 5px; }
+.testimonial-card .author { text-align: right; margin-top: 1.5rem; font-weight: bold; font-family: var(--font-heading); color: var(--dark-blue); }
+
+/* Contact Section */
+.contact { background:var(--dark-blue); color:var(--white); }
+.contact .section-title { color: var(--white); }
 .contact-content { display:grid; grid-template-columns:1fr 1fr; gap:3rem; }
-.contact-form { background: rgba(255,255,255,0.1); padding:2rem; border-radius:10px; }
-.form-group { margin-bottom:1rem; }
-.form-group label { display:block; margin-bottom:0.5rem; }
-.form-group input, .form-group select, .form-group textarea { width:100%; padding:0.8rem; border:none; border-radius:5px; font-size:1rem; }
-.submit-btn { background:#e67e22; color:white; padding:12px 30px; border:none; border-radius:5px; cursor:pointer; font-size:1rem; transition:background 0.3s;}
-.submit-btn:hover { background:#d35400; }
-footer { background:#1a252f; color:white; text-align:center; padding:2rem 0; }
+.contact-info p { margin-bottom: 1rem; }
+.contact-info strong { color: var(--primary-color); }
+.form-group { margin-bottom:1.5rem; }
+.form-group label { display:block; margin-bottom:0.5rem; font-weight: 600; }
+.form-group input, .form-group select, .form-group textarea { 
+  width:100%; 
+  padding:1rem; 
+  border:1px solid #777; 
+  background-color: #3b5065;
+  color: var(--white);
+  border-radius:5px; 
+  font-size:1rem; 
+  font-family: var(--font-body);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.25);
+}
+.submit-btn { width: 100%; background:var(--primary-color); color:var(--white); padding:15px 30px; border:none; border-radius:5px; cursor:pointer; font-size:1.1rem; font-weight: 600; font-family: var(--font-heading); transition:background-color 0.3s;}
+.submit-btn:hover { background:var(--primary-hover); }
+
+/* Footer */
+footer { background:#1a252f; color:rgba(255,255,255,0.7); text-align:center; padding:2rem 0; }
+
+/* Responsive */
 @media(max-width:768px){
-.nav-links { display:none; }
-.hero-content h1 { font-size:2rem; }
-.about-content, .contact-content, .testimonial-grid { grid-template-columns:1fr; }
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  .nav-links { display:none; } /* Suggest implementing a mobile burger menu here in a future update */
+  .about-content, .contact-content { grid-template-columns:1fr; }
+  .about-image { height: 300px; }
 }
 </style>
 
@@ -93,155 +211,136 @@ footer { background:#1a252f; color:white; text-align:center; padding:2rem 0; }
     "latitude": "34.9820",
     "longitude": "-85.2869"
   },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Jennifer Evans"
+      },
+      "reviewBody": "Five star floors are wonderful! They were the first to contact me. They came and gave a free estimate that was very reasonable. They were professional, cleaned up when they were finished, did a beautiful job on my floors."
+    },
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Don Rominger"
+      },
+      "reviewBody": "They were fast, professional and did an amazing job on our floors. I would highly recommend them to anyone. Thanks again for the great job."
+    }
+  ],
   "sameAs": [
     "https://www.facebook.com/fivestarhardwoodfloors",
     "https://www.instagram.com/fivestarhardwoodfloors",
     "https://www.yelp.com/biz/five-star-hardwood-floors-rossville"
-  ],
-  "serviceArea": {
-    "@type": "Place",
-    "name": "Rossville GA, Chattanooga TN, North Georgia"
-  },
-  "priceRange": "$$"
+  ]
 }
 </script>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "serviceType": "Hardwood Flooring",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "Five Star Hardwood Floors"
-  },
-  "areaServed": [
-    { "@type": "Place", "name": "Rossville, GA" },
-    { "@type": "Place", "name": "Chattanooga, TN" }
-  ],
-  "offers": {
-    "@type": "Offer",
-    "url": "https://fivestarhardwoodfloors.com/#contact",
-    "price": "0.00",
-    "priceCurrency": "USD",
-    "description": "Free hardwood flooring estimates"
-  }
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [{
-    "@type": "Question",
-    "name": "Do you offer free hardwood flooring estimates?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Yes, we provide free estimates for all hardwood installation, refinishing, and repair services."
-    }
-  },{
-    "@type": "Question",
-    "name": "Do you use dustless sanding equipment?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Yes, our advanced dustless sanding system removes up to 99% of airborne dust for a cleaner, healthier process."
-    }
-  },{
-    "@type": "Question",
-    "name": "Which areas do you serve?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "We proudly serve Rossville GA, Chattanooga TN, and surrounding North Georgia areas."
-    }
-  }]
-}
-</script>
 </head>
 <body>
 
-<header>
+<header id="header">
   <nav class="container">
-    <div class="logo">Five Star Hardwood Floors</div>
+    <div class="logo">Five Star Floors</div>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 </header>
 
 <section id="home" class="hero">
-  <canvas class="bg-canvas"></canvas>
-  <div class="container hero-content">
-    <h1>Premium Hardwood Flooring Services</h1>
-    <p>Expert installation, refinishing, and dustless sanding in Chattanooga, TN and Rossville, GA since 2003</p>
+  <div class="hero-content">
+    <h1>Flawless Hardwood Floors for Your Home</h1>
+    <p>Serving Chattanooga, TN and Rossville, GA with expert installation, dustless sanding, and refinishing services since 2003.</p>
     <a href="#contact" class="cta-button">Get a Free Estimate Today</a>
   </div>
 </section>
 
 <section id="services" class="services">
-  <canvas class="bg-canvas"></canvas>
   <div class="container">
     <h2 class="section-title">Our Hardwood Flooring Services</h2>
     <div class="services-grid">
-      <div class="service-card"><h3>Dustless Sanding</h3><p>Our eco-friendly dustless sanding system removes 99% of airborne dust and particles, ensuring a clean and healthy environment for your family during the refinishing process.</p></div>
-      <div class="service-card"><h3>Hardwood Installation</h3><p>We provide professional installation of a wide variety of solid and engineered hardwood floors. Our meticulous attention to detail guarantees a beautiful and long-lasting result.</p></div>
-      <div class="service-card"><h3>Floor Refinishing</h3><p>Restore the natural beauty of your existing hardwood floors. Our refinishing process can remove scratches, scuffs, and wear, bringing your floors back to life with a durable, eco-friendly finish.</p></div>
-      <div class="service-card"><h3>Custom Staining</h3><p>Create the perfect look to match your home's decor with our custom staining services. We offer a wide range of colors and finishes to achieve your desired aesthetic.</p></div>
+      <div class="service-card">
+        <i class="fa-solid fa-wind"></i>
+        <h3>Dustless Sanding</h3>
+        <p>Our advanced system captures 99% of dust, ensuring a clean, healthy process while preparing your floors for a perfect finish.</p>
+      </div>
+      <div class="service-card">
+        <i class="fa-solid fa-ruler-combined"></i>
+        <h3>Hardwood Installation</h3>
+        <p>Professional, meticulous installation of solid and engineered hardwood, guaranteeing a beautiful and durable result for years to come.</p>
+      </div>
+      <div class="service-card">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <h3>Floor Refinishing</h3>
+        <p>Restore the natural beauty of your existing floors. We remove scratches and wear, bringing your hardwood back to life with a fresh finish.</p>
+      </div>
+       <div class="service-card">
+        <i class="fa-solid fa-palette"></i>
+        <h3>Custom Staining</h3>
+        <p>Achieve the perfect look to match your home's decor with our wide range of custom stain colors and protective finishes.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="about" class="about">
-  <canvas class="bg-canvas"></canvas>
   <div class="container about-content">
     <div class="about-text">
-      <h2>Your Trusted Local Hardwood Flooring Experts</h2>
-      <p>Since 2003, Five Star Hardwood Floors has been dedicated to providing exceptional craftsmanship and unparalleled customer service to homeowners and businesses in Rossville, Chattanooga, and the surrounding areas. We pride ourselves on our professionalism, courtesy, and commitment to using only the highest quality materials. Our experienced team is here to guide you through every step of the process, from selecting the perfect flooring to the final installation and finishing touches.</p>
+      <h2>Your Trusted Local Flooring Experts</h2>
+      <p>Since 2003, Five Star Hardwood Floors has been dedicated to exceptional craftsmanship and unparalleled customer service in the Chattanooga area. We are professional, courteous, and committed to using the highest quality materials to bring your vision to life.</p>
       <ul class="about-features">
-        <li>Licensed and Insured Professionals</li>
-        <li>Advanced Dustless Sanding Technology</li>
+        <li>Licensed & Insured Professionals</li>
+        <li>Advanced Dustless Technology</li>
         <li>Premium, Durable Materials</li>
         <li>Free, No-Obligation Estimates</li>
-        <li>Locally Owned and Operated</li>
+        <li>Locally Owned & Operated</li>
       </ul>
+       <a href="#contact" class="cta-button" style="margin-top: 1.5rem;">Schedule Your Estimate</a>
     </div>
-    <div class="about-image" style="background:linear-gradient(45deg,#d4b896,#c19a6b);height:300px;border-radius:10px;"></div>
+    <div class="about-image"></div>
   </div>
 </section>
 
 <section id="testimonials" class="testimonials">
-    <canvas class="bg-canvas"></canvas>
     <div class="container">
-        <h2 class="section-title">What Our Customers Are Saying</h2>
+        <h2 class="section-title">Real Reviews from Our Customers</h2>
         <div class="testimonial-grid">
             <div class="testimonial-card">
-                <p>"Five Star Hardwood Floors did an incredible job refinishing our old, worn-out floors. They look brand new! The team was professional, and the dustless sanding was amazing."</p>
-                <div class="author">- Jane D., Chattanooga, TN</div>
+                <p>They were professional, cleaned up when they were finished, did a beautiful job on my floors. I would highly recommend them and if I ever need floors again, they will be my first and only call.</p>
+                <div class="author">- Jennifer Evans</div>
             </div>
             <div class="testimonial-card">
-                <p>"From the initial estimate to the final walk-through, the entire process was seamless. They installed new hardwood in our living room, and the quality of their work is outstanding."</p>
-                <div class="author">- John S., Rossville, GA</div>
+                <p>Excellent work, very professional and courteous. The floor is absolutely beautiful. They kept everything clean as they worked. They know what they are doing. I highly recommend them.</p>
+                <div class="author">- Patrice Smith</div>
             </div>
             <div class="testimonial-card">
-                <p>"I highly recommend Five Star Hardwood Floors. They were punctual, courteous, and their attention to detail was impressive. We're thrilled with our new floors."</p>
-                <div class="author">- Mary L., Ooltewah, TN</div>
+                <p>They were fast, professional and did an amazing job on our floors. I would highly recommend them to anyone. Thanks again for the great job.</p>
+                <div class="author">- Don Rominger</div>
             </div>
         </div>
     </div>
 </section>
 
 <section id="contact" class="contact">
-  <canvas class="bg-canvas"></canvas>
   <div class="container">
-    <h2 class="section-title" style="color:white;">Get Your Free, No-Obligation Estimate</h2>
+    <h2 class="section-title">Get Your Free Estimate</h2>
     <div class="contact-content">
       <div class="contact-form">
-        <form>
-          <div class="form-group"><label for="name">Full Name:</label><input type="text" id="name" name="name" required></div>
+        <form action="#" method="POST"> <div class="form-group"><label for="name">Full Name:</label><input type="text" id="name" name="name" required></div>
           <div class="form-group"><label for="email">Email:</label><input type="email" id="email" name="email" required></div>
           <div class="form-group"><label for="phone">Phone:</label><input type="tel" id="phone" name="phone"></div>
           <div class="form-group"><label for="service">Service Needed:</label>
@@ -256,86 +355,44 @@ footer { background:#1a252f; color:white; text-align:center; padding:2rem 0; }
             </select>
           </div>
           <div class="form-group"><label for="message">Tell Us About Your Project:</label>
-            <textarea id="message" name="message" rows="4" placeholder="For example, the approximate square footage and type of wood."></textarea></div>
+            <textarea id="message" name="message" rows="4" placeholder="e.g., approximate square footage, type of room, desired wood type..."></textarea></div>
           <button type="submit" class="submit-btn">Request My Free Estimate</button>
         </form>
       </div>
-      <div class="contact-info" style="color:white;">
+      <div class="contact-info">
         <h3>Contact Information</h3>
         <p><strong>Phone:</strong> (423) 595-6702</p>
         <p><strong>Email:</strong> info@fivestarhardwood.com</p>
         <p><strong>Address:</strong> 812 McFarland Ave, Rossville, GA 30741</p>
-        <p><strong>Hours:</strong> Monday - Friday, 8:00 AM - 6:00 PM</p>
+        <p><strong>Hours:</strong><br>Monday - Friday<br>8:00 AM - 6:00 PM</p>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <canvas class="bg-canvas"></canvas>
   <div class="container">
     <p>&copy; 2025 Five Star Hardwood Floors. All Rights Reserved.</p>
   </div>
 </footer>
 
 <script>
-// Smooth scrolling
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector(anchor.getAttribute('href')).scrollIntoView({behavior:'smooth'});
-    });
+// Change header background on scroll
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
 });
 
-// Form handler
+// Form handler - NOTE: For a real website, this should send data to a server or email service.
 document.querySelector('form').addEventListener('submit', e => {
     e.preventDefault();
     alert('Thank you for your inquiry! We will be in touch with you shortly.');
+    e.target.reset(); // Clears the form after submission
 });
-
-// Load JSON and filter for *-sample images
-async function loadSampleImages() {
-    try {
-        const res = await fetch('https://fivestarhardwoodfloors.com/hardwood_catalog.json');
-        if (!res.ok) {
-            throw new Error(`HTTP error! status: ${res.status}`);
-        }
-        const data = await res.json();
-        return data
-            .filter(item => item.image && item.image.includes('-sample'))
-            .map(item => item.image);
-    } catch (error) {
-        console.error("Could not load sample images:", error);
-        return [];
-    }
-}
-
-// Fill canvases with tiled sample images
-async function fillCanvases() {
-    const images = await loadSampleImages();
-    if (!images.length) return;
-    
-    document.querySelectorAll('.bg-canvas').forEach(canvas => {
-        const ctx = canvas.getContext('2d');
-        canvas.width = canvas.clientWidth;
-        canvas.height = canvas.clientHeight;
-        const cols = 10;
-        const rows = 10;
-        const tileW = canvas.width / cols;
-        const tileH = canvas.height / rows;
-
-        for (let i=0;i<cols;i++){
-            for (let j=0;j<rows;j++){
-                const img = new Image();
-                img.src = images[Math.floor(Math.random()*images.length)];
-                img.onload = () => ctx.drawImage(img, i*tileW, j*tileH, tileW, tileH);
-            }
-        }
-    });
-}
-
-window.addEventListener('load', fillCanvases);
-window.addEventListener('resize', fillCanvases);
 </script>
 
 </body>
