@@ -67,7 +67,7 @@
       height: 100%;
       object-fit: cover;
       opacity: 0;
-      transition: opacity 1s ease-in-out;
+      transition: opacity 0.8s ease-in-out;
     }
 
     .carousel img.active {
@@ -82,9 +82,12 @@
       color: var(--text);
       background: rgba(0, 0, 0, 0.55);
       backdrop-filter: blur(6px);
-      white-space: nowrap;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
       overflow: hidden;
       text-overflow: ellipsis;
+      white-space: normal;
     }
 
     @media (max-width: 600px) {
@@ -116,37 +119,61 @@
           )
           .map(item => ({
             title: item.title,
-            images: [item.image] // later: add multiple
-          }))
-          .sort((a, b) => a.title.localeCompare(b.title));
+            images: [item.image] // support multiple later
+          }));
+
+        // Randomize order
+        for (let i = samples.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [samples[i], samples[j]] = [samples[j], samples[i]];
+        }
 
         images.push(...samples);
         renderCards();
       } catch (err) {
-        console.error(err);
+        console.error("Catalog fetch failed:", err);
       }
     }
 
     function createCarousel(container, urls, interval = 3000) {
       let index = 0;
-      const imgEls = urls.map((url, i) => {
+      const imgEls = [];
+
+      urls.forEach((url, i) => {
         const img = document.createElement('img');
         img.src = url;
-        if (i === 0) img.classList.add('active');
+        img.loading = (i === 0) ? "eager" : "lazy";
+
+        img.onload = () => {
+          if (imgEls.length === 0) img.classList.add('active');
+          imgEls.push(img);
+        };
+
+        img.onerror = () => {
+          console.warn("Image skipped (failed):", url);
+          container.removeChild(img);
+        };
+
         container.appendChild(img);
-        return img;
       });
 
-      setInterval(() => {
-        imgEls[index].classList.remove('active');
-        index = (index + 1) % imgEls.length;
-        imgEls[index].classList.add('active');
-      }, interval);
+      if (urls.length > 1) {
+        setInterval(() => {
+          if (imgEls.length < 2) return; // no cycling if only one survives
+          imgEls[index].classList.remove('active');
+          index = (index + 1) % imgEls.length;
+          imgEls[index].classList.add('active');
+        }, interval);
+      }
     }
 
     function renderCards() {
+      if (loadedCount >= images.length) return;
+
       const toLoad = images.slice(loadedCount, loadedCount + buffer);
       toLoad.forEach(item => {
+        if (!item.images || !item.images.length) return;
+
         const card = document.createElement('div');
         card.className = 'card';
 
@@ -173,6 +200,7 @@
     }, { root: null, rootMargin: '200px', threshold: 0.1 });
 
     const observeLastCard = () => {
+      observer.disconnect();
       const cards = document.querySelectorAll('.card');
       if (cards.length) observer.observe(cards[cards.length - 1]);
     };
